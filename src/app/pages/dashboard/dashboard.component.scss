@@ -1,0 +1,13 @@
+main{
+  background-color: antiquewhite;
+  height: 100vh;
+}
+
+.left-section{
+  display: flex;
+  align-items: left;
+  height: 100%;
+  width: 20%;
+  background-color: blueviolet;
+  left: 0;
+}

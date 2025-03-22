@@ -13,13 +13,7 @@ interface ClanMember {
   selector: 'app-clan-member-card',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div class="member-card">
-      <h3>{{ member.account_name }}</h3>
-      <p>Cargo: {{ member.role_i18n }}</p>
-      <p>Entrou em: {{ formatDate(member.joined_at) }}</p>
-    </div>
-  `,
+  templateUrl: './clan-member-card.component.html',
   styleUrls: ['./clan-member-card.component.scss']
 })
 
