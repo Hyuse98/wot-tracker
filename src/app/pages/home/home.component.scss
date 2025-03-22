@@ -1,0 +1,67 @@
+.home-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: rgba(36, 36, 36, 0);
+  color: #ffffff;
+}
+
+.home-container{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  width: 20%;
+  height: 50%;
+  background-size: cover;
+  align-content: center;
+}
+
+.form-header{
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  background-color: rgb(229, 127, 255, 0);
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(255, 127, 127, 0);
+}
+
+.form-footer{
+  padding: 5px;
+  margin: 10px;
+  background-color: rgb(229, 127, 255, 0);
+}
+
+input, button {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #ffc400;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #7a35e8;
+}
+
+a {
+  cursor: pointer; /* Garante que o mouse indica o clique */
+  text-decoration: underline; /* Deixa com aparência de link */
+  color: blue;
+}
