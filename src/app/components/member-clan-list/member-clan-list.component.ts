@@ -1,28 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { ClanMemberCardComponent } from '../clan-member-card/clan-member-card.component';
-
-interface ClanMember {
-  role: string;
-  role_i18n: string;
-  joined_at: number;
-  account_id: number;
-  account_name: string;
-}
-
-interface ClanResponse {
-  status: string;
-  meta: {
-    count: number;
-  };
-  data: {
-    [clanId: string]: {
-      members: ClanMember[];
-      tag: string;
-    };
-  };
-}
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ClanMemberCardComponent} from '../clan-member-card/clan-member-card.component';
+import {MemberListService} from '../../service/member-list/member-list.service';
 
 @Component({
   selector: 'app-member-clan-list',
@@ -32,42 +11,40 @@ interface ClanResponse {
   styleUrls: ['./member-clan-list.component.scss']
 })
 export class MemberClanListComponent implements OnInit {
-  members: ClanMember[] = [];
+
+  members: any[] = [];
   clanTag: string = '';
-  loading: boolean = true;
+  clan_emblem: string = '';
+  members_count: number = 0;
+  loading: boolean = false;
   error: string | null = null;
 
-  private API_KEY = '5c96e3e41e057bbe31261ac1aaea86d0';
-  private CLAN_ID = '1000065908'; // ID do clã no exemplo
-
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.fetchClanMembers();
+  constructor(private memberListService: MemberListService) {
   }
 
-  fetchClanMembers(): void {
-    const url = `https://api.worldoftanks.com/wot/clans/info/?application_id=${this.API_KEY}&clan_id=${this.CLAN_ID}`;
+  ngOnInit(): void {
+    this.memberListService.members$.subscribe(members => {
+      this.members = members;
+    });
 
-    this.http.get<ClanResponse>(url).subscribe({
-      next: (response) => {
-        if (response.status === 'ok') {
-          
-          const clanId = Object.keys(response.data)[0];
-          const clan = response.data[clanId];
-
-          this.members = clan.members;
-          this.clanTag = clan.tag;
-          this.loading = false;
-        } else {
-          this.error = 'Erro ao carregar dados do clã';
-          this.loading = false;
-        }
-      },
-      error: (err) => {
-        this.error = `Erro na requisição: ${err.message}`;
-        this.loading = false;
+    this.memberListService.clanInfo$.subscribe(clanInfo => {
+      if (clanInfo) {
+        this.clanTag = clanInfo.clanTag;
+        this.clan_emblem = clanInfo.clanEmblem;
+        this.members_count = clanInfo.membersCount;
+      } else {
+        this.clanTag = '';
+        this.clan_emblem = '';
+        this.members_count = 0;
       }
+    });
+
+    this.memberListService.loading$.subscribe(loading => {
+      this.loading = loading;
+    });
+
+    this.memberListService.error$.subscribe(error => {
+      this.error = error;
     });
   }
 }

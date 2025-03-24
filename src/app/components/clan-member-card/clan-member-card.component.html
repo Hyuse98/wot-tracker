@@ -1,4 +1,4 @@
-<div class="member-card">
+<div class="member-card" (click)="onClick()">
   <h3>{{ member.account_name }}</h3>
   <p>Cargo: {{ member.role_i18n }}</p>
   <p>Entrou em: {{ formatDate(member.joined_at) }}</p>

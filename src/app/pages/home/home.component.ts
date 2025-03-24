@@ -18,7 +18,7 @@ export class HomeComponent {
 
   onInputChange(event: Event) {
     this.inputValue = (event.target as HTMLInputElement).value;
-    this.sharedService.updateInputValue(this.inputValue);
+    this.sharedService.updateClanIdValue(this.inputValue);
   }
 
   redirect() {

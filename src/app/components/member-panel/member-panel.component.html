@@ -1,1 +1,16 @@
-<p>member-panel works!</p>
+<div class="tank-display">
+  <div *ngIf="loading" class="loading">
+    Loading tanks...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error" class="tanks-list">
+    <app-tank-card
+      *ngFor="let tank of tanks"
+      [tank]="tank"
+    ></app-tank-card>
+  </div>
+</div>
