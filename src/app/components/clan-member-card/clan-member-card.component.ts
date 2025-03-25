@@ -20,7 +20,6 @@ interface ClanMember {
 
 export class ClanMemberCardComponent {
   @Input() member!: ClanMember;
-  private tankIds: any[] = [];
 
   constructor(private tankListService: TankListService) { }
 
@@ -29,14 +28,6 @@ export class ClanMemberCardComponent {
   }
 
   onClick(): void {
-    this.tankListService.getTanksByMemberId(this.member.account_id).subscribe(
-      (tankIds) => {
-        this.tankIds = tankIds;
-        console.log('Tank IDs:', this.tankIds);
-      },
-      (error) => {
-        console.error('Erro ao buscar os tanks:', error);
-      }
-    );
+    this.tankListService.getTanksByMemberId(this.member.account_id)
   }
 }

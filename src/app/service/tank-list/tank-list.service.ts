@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable, map, switchMap, forkJoin} from 'rxjs';
+import {BehaviorSubject, Observable, map, switchMap, forkJoin, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class TankListService {
   private API_KEY: string = "5c96e3e41e057bbe31261ac1aaea86d0";
   private tier10TankIds: Set<number> = new Set();
 
-  private tanksIdSource = new BehaviorSubject<any[]>([])
-  tanks$ = this.tanksIdSource.asObservable();
+  private tanksSource = new BehaviorSubject<any[]>([])
+  tanks$ = this.tanksSource.asObservable();
 
   private loadingSource = new BehaviorSubject<boolean>(false);
   loading$ = this.loadingSource.asObservable();
@@ -35,15 +35,18 @@ export class TankListService {
       });
   }
 
-  getTanksByMemberId(playerId: string): Observable<any[]> {
-    return this.http.get<any>(`${this.API_URL}?application_id=${this.API_KEY}&fields=tank_id&account_id=${playerId}`).pipe(
-      switchMap(response => {
+  getTanksByMemberId(playerId: string): void {
+    this.http.get<any>(`${this.API_URL}?application_id=${this.API_KEY}&fields=tank_id&account_id=${playerId}`)
+      .subscribe(response => {
         const data = response?.data || {};
         const tankIds = (data[playerId] || [])
           .map((entry: any) => entry.tank_id)
-          .filter((tankId: any) => this.tier10TankIds.has(tankId)); // Filtra apenas Tier 10
+          .filter((tankId: any) => this.tier10TankIds.has(tankId));
 
-        if (tankIds.length === 0) return [];
+        if (tankIds.length === 0) {
+          this.tanksSource.next([]);
+          return;
+        }
 
         const batchSize = 100;
         const requests = [];
@@ -52,8 +55,20 @@ export class TankListService {
           requests.push(this.http.get<any>(`${this.API_TANK_URL}?application_id=${this.API_KEY}&tank_id=${batch}&fields=name%2C+nation%2C+tier`));
         }
 
-        return forkJoin(requests).pipe(map(responses => responses.flat()));
-      })
-    );
+        // Fazer as requisições e atualizar o BehaviorSubject
+        Promise.all(requests.map(req => req.toPromise())).then(responses => {
+          const tanks = responses
+            .flatMap(response => Object.values(response?.data || {}))
+            .map((tank: any) => ({
+              tier: tank.tier,
+              name: tank.name,
+              nation: tank.nation
+            }));
+
+          this.tanksSource.next(tanks);
+          console.log(this.tanks$)
+        });
+      });
   }
+
 }

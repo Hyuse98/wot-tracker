@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {TitleCasePipe} from '@angular/common';
 
 interface Tank {
   tankName: string;
@@ -8,12 +9,16 @@ interface Tank {
 
 @Component({
   selector: 'app-tank-card',
-  imports: [],
+  imports: [
+    TitleCasePipe
+  ],
   templateUrl: './tank-card.component.html',
   styleUrl: './tank-card.component.scss'
 })
-export class TankCardComponent {
+export class TankCardComponent{
 
-  @Input() tank!: Tank;
+  @Input() name!: string;
+  @Input() tier!: number;
+  @Input() nation!: string;
 
 }

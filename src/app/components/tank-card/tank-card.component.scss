@@ -2,3 +2,27 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.tank-card {
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.tank-card:hover {
+  transform: scale(1.05);
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 14px;
+}

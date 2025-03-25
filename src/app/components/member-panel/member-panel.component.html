@@ -1,16 +1,12 @@
-<div class="tank-display">
-  <div *ngIf="loading" class="loading">
-    Loading tanks...
-  </div>
-
-  <div *ngIf="error" class="error">
-    {{ error }}
-  </div>
-
-  <div *ngIf="!loading && !error" class="tanks-list">
-    <app-tank-card
-      *ngFor="let tank of tanks"
-      [tank]="tank"
-    ></app-tank-card>
-  </div>
+<div class="tank-container" *ngIf="tanks.length > 0; else noTanks">
+  <app-tank-card
+    *ngFor="let tank of tanks"
+    [name]="tank.name"
+    [tier]="tank.tier"
+    [nation]="tank.nation">
+  </app-tank-card>
 </div>
+
+<ng-template #noTanks>
+  <p>Nenhum tanque encontrado.</p>
+</ng-template>
