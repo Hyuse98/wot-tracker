@@ -1,12 +1,7 @@
-<div class="clan-metadata">
-  <h2 *ngIf="clanTag">Membros do Clã {{ clanTag }}</h2>
-  <img src={{clan_emblem}} alt="">
-  <p>Total de Membros: {{members_count}}</p>
-</div>
-
 <div class="clan-members-container">
   <div>
-    <div *ngIf="loading">Carregando membros...</div>
+
+    <div class="loading" *ngIf="loading">Carregando membros...</div>
 
     <div class="members-grid" *ngIf="!loading && members.length > 0">
       <app-clan-member-card
@@ -15,11 +10,11 @@
       ></app-clan-member-card>
     </div>
 
-    <div *ngIf="!loading && members.length === 0">
+    <div class="warn" *ngIf="!loading && members.length === 0">
       Nenhum membro encontrado.
     </div>
 
-    <div *ngIf="error" class="error">
+    <div class="error" *ngIf="error" >
       {{ error }}
     </div>
   </div>

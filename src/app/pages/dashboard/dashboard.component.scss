@@ -1,22 +1,24 @@
 main{
   display: flex;
+  padding-top: 60px;
   flex-direction: row;
-  background-color: antiquewhite;
-  height: 93vh;
+  background-color: rgb(255, 255, 255, 0);
+  height: 100vh;
 }
 
 .left-section{
-  display: flex;
-  height: 93vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 93.4vh;
   width: 20%;
-  background-color: blueviolet;
+  background-color: rgb(255, 255, 255, 0);
   left: 0;
 }
 
 .right-section{
   display: flex;
-  height: 93vh;
+  height: 80vh;
   width: 80%;
-  background-color: #9fe22b;
+  background-color: rgb(255, 255, 255, 0);
   left: 0;
 }

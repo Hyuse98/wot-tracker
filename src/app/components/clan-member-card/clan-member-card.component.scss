@@ -1,14 +1,14 @@
 .member-card {
-  display: flex;
+  display: grid;
   flex-direction: column;
-  padding: 15px;
-  border: 1px solid #ddd;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: rgb(240, 240, 240);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  justify-items: left;
 }
 
-.member-card h3 {
-  margin-top: 0;
-  color: #333;
+.member-card p {
+  color: rgba(0, 0, 0);
 }

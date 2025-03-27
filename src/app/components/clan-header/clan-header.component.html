@@ -1,5 +1,9 @@
-<div class="clan-metadata">
-  <h2 *ngIf="clanTag">Clan {{ clanTag }}</h2>
-  <img ngSrc="{{clan_emblem}}" alt="">
-  <p>Members: {{members_count}}</p>
+<div class="body">
+  <div>
+    <h2 *ngIf="clanTag">Clan {{ clanTag }}</h2>
+    <p>Members: {{members_count}}</p>
+  </div>
+  <div>
+    <img ngSrc="{{clan_emblem}}" alt="clan emblem" width="50" height="50">
+  </div>
 </div>

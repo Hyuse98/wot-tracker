@@ -14,7 +14,7 @@ import {MemberListService} from '../../service/member-list/member-list.service';
 export class ClanHeaderComponent implements OnInit {
 
   clanTag: string = '';
-  clan_emblem: string = '';
+  clan_emblem: string = 'assets/images/imagePlaceholder.jpg';
   members_count: number = 0;
 
   constructor(private memberListService: MemberListService) {
@@ -29,7 +29,7 @@ export class ClanHeaderComponent implements OnInit {
         this.members_count = clanInfo.membersCount;
       } else {
         this.clanTag = '';
-        this.clan_emblem = '';
+        this.clan_emblem = 'assets/images/imagePlaceholder.jpg';
         this.members_count = 0;
       }
     });

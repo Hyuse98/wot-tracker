@@ -1,4 +1,9 @@
 <div class="navbar-container">
-  <input type="text" [(ngModel)]="clanId" placeholder="Clan Id" (keyup.enter)="onFetchMembers()">
-  <button type="button" (click)="onFetchMembers()">Buscar</button>
+  <div class="logo">
+    <img ngSrc="assets/images/imagePlaceholder.jpg" alt="" height="30" width="30">
+  </div>
+  <div class="search">
+    <input type="text" [(ngModel)]="clanId" placeholder="Clan Id" (keyup.enter)="onFetchMembers()">
+    <button type="button" (click)="onFetchMembers()">Buscar</button>
+  </div>
 </div>

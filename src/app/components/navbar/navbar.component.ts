@@ -1,12 +1,14 @@
 import {Component} from '@angular/core';
 import {MemberListService} from '../../service/member-list/member-list.service';
 import {FormsModule} from '@angular/forms';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    NgOptimizedImage
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
