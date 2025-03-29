@@ -1,15 +1,59 @@
-.navbar-container{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-
+// Estilos da barra de navegação
+.navbar {
+  background-color: #483D8B; // DarkSlateBlue
+  color: white;
+  padding: 1rem;
   display: flex;
-
-  flex-direction: row;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
-  background: rgb(57, 48, 83);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid #333333;
+      border-radius: 4px 0 0 4px;
+      width: 200px;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #9370DB;
+      color: white;
+      border: 1px solid #333333;
+      border-left: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken(#9370DB, 10%);
+      }
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
 }
