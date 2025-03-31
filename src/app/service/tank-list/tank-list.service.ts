@@ -36,6 +36,9 @@ export class TankListService {
   }
 
   getTanksByMemberId(playerId: string): void {
+    this.loadingSource.next(true);
+    this.errorSource.next(null);
+
     this.http.get<any>(`${this.API_URL}?application_id=${this.API_KEY}&fields=tank_id&account_id=${playerId}`)
       .subscribe(response => {
         const data = response?.data || {};
@@ -45,6 +48,7 @@ export class TankListService {
 
         if (tankIds.length === 0) {
           this.tanksSource.next([]);
+          this.loadingSource.next(false);
           return;
         }
 
@@ -66,9 +70,12 @@ export class TankListService {
             }));
 
           this.tanksSource.next(tanks);
-          console.log(this.tanks$)
+          //console.log(this.tanks$)
+          this.loadingSource.next(false);
         });
       });
+
+
   }
 
 }
