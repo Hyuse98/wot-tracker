@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ClanMemberCardComponent} from '../clan-member-card/clan-member-card.component';
+import {MemberCardComponent} from '../clan-member-card/member-card.component';
 import {MemberListService} from '../../service/member-list/member-list.service';
 
 @Component({
   selector: 'app-member-clan-list',
   standalone: true,
-  imports: [CommonModule, ClanMemberCardComponent],
+  imports: [CommonModule, MemberCardComponent],
   templateUrl: './member-clan-list.component.html',
   styleUrls: ['./member-clan-list.component.scss']
 })

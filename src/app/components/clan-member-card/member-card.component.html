@@ -1,0 +1,5 @@
+<div class="member-card" (click)="onClick()">
+  <p class="member-name">{{ member.account_name }}</p>
+  <p class="member-rank">Posição: {{ member.role_i18n }}</p>
+  <p class="member-date">Ingressou em: {{ formatDate(member.joined_at) }}</p>
+</div>

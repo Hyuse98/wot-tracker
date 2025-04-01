@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {TankCardComponent} from '../tank-card/tank-card.component';
 import {TankListService} from '../../service/tank-list/tank-list.service';
 
@@ -8,7 +8,8 @@ import {TankListService} from '../../service/tank-list/tank-list.service';
   standalone: true,
   imports: [
     CommonModule,
-    TankCardComponent
+    TankCardComponent,
+    NgOptimizedImage
   ],
   templateUrl: './member-panel.component.html',
   styleUrl: './member-panel.component.scss'
@@ -16,6 +17,7 @@ import {TankListService} from '../../service/tank-list/tank-list.service';
 export class MemberPanelComponent implements OnInit {
 
   tanks: { tier: number; name: string; nation: string }[] = [];
+  loading = false;
 
   constructor(private tankListService: TankListService) { }
 
@@ -23,6 +25,11 @@ export class MemberPanelComponent implements OnInit {
     this.tankListService.tanks$.subscribe(tanks => {
       this.tanks = tanks;
     });
+
+    this.tankListService.loading$.subscribe(loading => {
+      this.loading = loading;
+    })
+
   }
 
 }

@@ -1,9 +1,15 @@
-<div class="body">
-  <div>
-    <h2 *ngIf="clanTag">Clan {{ clanTag }}</h2>
-    <p>Members: {{members_count}}</p>
-  </div>
-  <div>
-    <img ngSrc="{{clan_emblem}}" alt="clan emblem" width="50" height="50">
+<div class="clan-header">
+
+  <div class="clan-info">
+
+    <div class="clan-details">
+      <h2 class="clan-name" *ngIf="clanTag">Clan {{ clanTag }}</h2>
+      <p class="member-count">Members: {{members_count}}</p>
+    </div>
+
+    <div class="clan-emblem">
+      <img ngSrc="{{clan_emblem}}" alt="clan emblem" width="50" height="50">
+    </div>
+
   </div>
 </div>

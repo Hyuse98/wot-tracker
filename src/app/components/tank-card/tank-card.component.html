@@ -1,5 +1,8 @@
 <div class="tank-card">
-  <h2>{{ name }}</h2>
-  <p><strong>Tier:</strong> {{ tier }}</p>
-  <p><strong>Nação:</strong> {{ nation | titlecase }}</p>
+  <h2 class="tank-name">{{ name }}</h2>
+  <div class="tank-info">
+    <p class="tier"><strong>Tier:</strong> {{ tier }}</p>
+    <p class="nation"><strong>Nação:</strong> {{ nation | titlecase }}</p>
+    <p class="flag"></p>
+  </div>
 </div>

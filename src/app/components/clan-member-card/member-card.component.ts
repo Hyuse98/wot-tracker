@@ -14,11 +14,11 @@ interface ClanMember {
   selector: 'app-clan-member-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './clan-member-card.component.html',
-  styleUrls: ['./clan-member-card.component.scss']
+  templateUrl: './member-card.component.html',
+  styleUrls: ['./member-card.component.scss']
 })
 
-export class ClanMemberCardComponent {
+export class MemberCardComponent {
   @Input() member!: ClanMember;
 
   constructor(private tankListService: TankListService) { }

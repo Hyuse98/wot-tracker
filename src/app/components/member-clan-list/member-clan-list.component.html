@@ -1,9 +1,9 @@
-<div class="clan-members-container">
+<div class="member-list-container">
   <div>
 
     <div class="loading" *ngIf="loading">Carregando membros...</div>
 
-    <div class="members-grid" *ngIf="!loading && members.length > 0">
+    <div class="members" *ngIf="!loading && members.length > 0">
       <app-clan-member-card
         *ngFor="let member of members"
         [member]="member"
@@ -11,7 +11,7 @@
     </div>
 
     <div class="warn" *ngIf="!loading && members.length === 0">
-      Nenhum membro encontrado.
+      Nenhum membro encontrado
     </div>
 
     <div class="error" *ngIf="error" >

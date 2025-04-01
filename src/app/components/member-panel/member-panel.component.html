@@ -1,12 +1,27 @@
-<div class="tank-container" *ngIf="tanks.length > 0; else noTanks">
-  <app-tank-card
-    *ngFor="let tank of tanks"
-    [name]="tank.name"
-    [tier]="tank.tier"
-    [nation]="tank.nation">
-  </app-tank-card>
+<div class="tank-panel">
+  <div class="panel-header">
+    <h2>Tanks</h2>
+    <p *ngIf="tanks.length > 0">Quantidade: {{tanks.length}}</p>
+  </div>
+  <div class="panel-content">
+    <div class="empty-state" *ngIf="!loading && tanks.length === 0">
+      <p>Nenhum tanque encontrado</p>
+    </div>
+    <div class="loading" *ngIf="loading">
+      <img ngSrc="assets/images/Loading.gif" alt="" height="100" width="100">
+    </div>
+    <div *ngIf="tanks.length > 0">
+      <div class="tanks-grid">
+        <app-tank-card
+          *ngFor="let tank of tanks"
+          [name]="tank.name"
+          [tier]="tank.tier"
+          [nation]="tank.nation">
+        </app-tank-card>
+      </div>
+      <div class="warn" *ngIf="!loading && tanks.length === 0">
+        <p>Nenhum tanque encontrado</p>
+      </div>
+  </div>
+  </div>
 </div>
-
-<ng-template #noTanks>
-  <p>Nenhum tanque encontrado.</p>
-</ng-template>

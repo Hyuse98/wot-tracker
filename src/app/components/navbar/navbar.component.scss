@@ -1,8 +1,9 @@
 // Estilos da barra de navegação
 .navbar {
-  background-color: #483D8B; // DarkSlateBlue
+  //background-color: #483D8B;// DarkSlateBlue
+  background-color: white;
   color: white;
-  padding: 1rem;
+  //padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,6 +12,8 @@
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    padding-left: 1rem;
+    padding-right: 2rem;
   }
 
   .search-container {
@@ -37,6 +40,20 @@
         background-color: darken(#9370DB, 10%);
       }
     }
+  }
+
+  .infos{
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 1rem;
+    padding-right: 2rem;
+
+    a{
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #000000;
+    }
+
   }
 
   .nav-actions {

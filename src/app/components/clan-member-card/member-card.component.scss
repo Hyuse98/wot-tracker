@@ -1,0 +1,29 @@
+// Estilos para os cards dos membros
+.member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover, &.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .member-name {
+    font-weight: bold;
+  }
+
+  .member-rank {
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .member-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+}
