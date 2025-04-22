@@ -1,59 +1,121 @@
 # Qualy
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.2.
+Um aplicativo para gerenciamento e visualização de dados de clãs e tanques.
 
-## Development server
+## Visão Geral
 
-To start a local development server, run:
+Este projeto é uma aplicação web desenvolvida em Angular 19 para gerenciar e visualizar informações sobre membros de clãs e seus tanques. Inclui recursos como:
 
+- Dashboard para visualização de estatísticas
+- Gestão de membros de clãs
+- Visualização e acompanhamento de dados de tanques
+- Interface responsiva com suporte a tema claro/escuro
+
+## Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── components/       # Componentes reutilizáveis da UI
+│   │   ├── clan-header/
+│   │   ├── clan-member-card/
+│   │   ├── member-clan-list/
+│   │   ├── member-panel/
+│   │   ├── navbar/
+│   │   └── tank-card/
+│   ├── pages/            # Componentes de página
+│   │   ├── dashboard/
+│   │   └── home/
+│   └── service/          # Serviços da aplicação
+│       ├── member-list/
+│       ├── shared/
+│       ├── tank-list/
+│       └── theme/
+├── assets/               # Recursos estáticos
+└── styles/               # Estilos globais
+```
+
+## Recursos Principais
+
+### Gerenciamento de Clãs
+- Visualização de informações do clã
+- Lista de membros com estatísticas
+- Filtros e ordenação de membros
+
+### Sistema de Tanques
+- Catálogo de tanques de tier 10
+- Estatísticas e informações detalhadas
+- Visualização por tipo de tanque
+
+### Interface Adaptativa
+- Suporte completo a dispositivos móveis e desktop
+- Tema claro/escuro personalizável
+- Layout responsivo usando Bootstrap 5
+
+## Pré-requisitos
+
+- Node.js (v18+)
+- npm ou yarn
+- Angular CLI (v19.2+)
+
+## Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/qualy.git
+cd qualy
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Inicie o servidor de desenvolvimento:
+```bash
+npm start
+```
+
+## Comandos Úteis
+
+### Desenvolvimento
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
+### Build
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### Testes
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+### Deployment
 ```bash
-ng e2e
+ng build --configuration production --base-href="/qualy/"
+npx angular-cli-ghpages --dir=dist/qualy/browser
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Tecnologias Utilizadas
 
-## Additional Resources
+- Angular 19
+- TypeScript
+- RxJS
+- Express (SSR - Server-Side Rendering)
+- Bootstrap 5
+- Angular CLI
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Contribuição
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
