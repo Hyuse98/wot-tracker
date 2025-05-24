@@ -1,6 +1,40 @@
-body{
-  height: 80vh;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(99, 89, 133);
+
+:root {
+  --primary-color: #6200ea;
+  --secondary-color: #03dac6;
+  --background-color: white;
+  --text-color: black;
+}
+
+.light-theme {
+  --background-color: white;
+  --text-color: black;
+  --primary-color: #ffffff;
+  --secondary-color: #03dac6;
+}
+
+.dark-theme {
+  --background-color: #121212;
+  --text-color: white;
+  --primary-color: #1e1e1e;
+  --secondary-color: #03dac6;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
 }

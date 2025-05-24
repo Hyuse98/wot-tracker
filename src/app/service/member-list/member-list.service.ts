@@ -1,14 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemberListService {
 
-  private API_URL = 'https://api.worldoftanks.com/wot/clans/info/';
-  private API_KEY: string = "5c96e3e41e057bbe31261ac1aaea86d0";
+  private API_BASE_URL: string = environment.apiBaseUrl
+  private CLAN_URL: string = environment.clanInfoUrl
+  private API_KEY: string = environment.apiKey;
 
   private membersSource = new BehaviorSubject<any[]>([]);
   members$ = this.membersSource.asObservable();
@@ -29,7 +31,7 @@ export class MemberListService {
     this.loadingSource.next(true);
     this.errorSource.next(null);
 
-    const url = `${this.API_URL}?application_id=${this.API_KEY}&clan_id=${clanId}`;
+    const url = `${this.API_BASE_URL}${(this.CLAN_URL)}?application_id=${this.API_KEY}&clan_id=${clanId}`;
 
     this.http.get<any>(url).subscribe({
       next: (response) => {

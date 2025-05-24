@@ -1,0 +1,34 @@
+
+$primary-color: #6200ea;
+$secondary-color: #03dac6;
+
+$light-background: white;
+$light-text: black;
+
+$dark-background: #121212;
+$dark-text: white;
+
+.light-theme {
+  background-color: $light-background;
+  color: $light-text;
+}
+
+.dark-theme {
+  background-color: $dark-background;
+  color: $dark-text;
+}
+
+$button-padding: 10px 20px;
+
+button {
+  background-color: $primary-color;
+  color: $light-text;
+  border: none;
+  padding: $button-padding;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: $secondary-color;
+}
