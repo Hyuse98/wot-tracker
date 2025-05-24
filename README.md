@@ -1,4 +1,4 @@
-# Qualy
+# WoTracker
 
 Um aplicativo para gerenciamento e visualização de dados de clãs e tanques.
 
