@@ -13,7 +13,7 @@ import {TankListService} from './service/tank-list/tank-list.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'qualy';
+  title = 'wot-tracker';
 
   constructor(public tankListService: TankListService) {}
 

@@ -1,5 +1,5 @@
 {
-  "name": "qualy",
+  "name": "wot-tracker",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:qualy": "node dist/qualy/server/server.mjs"
+    "serve:ssr:wot-tracker": "node dist/wot-tracker/server/server.mjs"
   },
   "private": true,
   "dependencies": {
